@@ -3,14 +3,15 @@
 #include <map>
 #include <string>
 #include "Port.h"
+#include <optional>
 
 namespace eminem {
 	namespace board {
-		enum class Direction {
+		enum Direction {
 			N, NE, E, SE, S, SW, W, NW
 		};
 
-		Direction opposite(Direction d) { return static_cast<Direction>((static_cast<int>(d) + 4) % 8); }
+		inline Direction opposite(Direction d) { return static_cast<Direction>((static_cast<int>(d) + 4) % 8); }
 
 		class Seazone : public Location
 		{
@@ -21,16 +22,16 @@ namespace eminem {
 			~Seazone() override;
 
 			void addAdjacent(const Direction dir, const std::shared_ptr<Seazone> adj);
-			//std::shared_ptr<Port> getPort() const { return port; }
-			bool hasPort() const { return _hasPort; }
+			std::shared_ptr<Port> getPort() const { return port; }
+			bool hasPort() const { return true; }// port.has_value(); }
 			std::map<Direction, std::shared_ptr<Seazone>>& getAdjacents() { return adjacent; }
+			std::shared_ptr<Seazone>& getAdjacent(const Direction& dir) { return adjacent[dir]; }
 
 			//bool operator==(const Location&) const;
 			bool operator==(const Seazone&) const;
 
 		private:			
-			//std::shared_ptr<Port> port;
-			bool _hasPort;
+			std::shared_ptr<Port> port;
 			std::map<Direction, std::shared_ptr<Seazone>> adjacent;
 		};
 

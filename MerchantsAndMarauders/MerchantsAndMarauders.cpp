@@ -9,13 +9,25 @@ int main()
 {
     eminem::board::Board board;
     board.setupBoard();
-    eminem::entity::Captain cap(board.getTile(std::string("Nassau")));
+    try {
+        eminem::entity::Captain cap(board.getTile(std::string("Nassau")));
 
-    cap.printLoc();
-    cap.move(board.getTile(std::string("Tortuga")));
-    cap.printLoc();
-    cap.enterOrExitPort();
-    cap.printLoc();
+        cap.printLoc();
+        cap.move(board.getTile(std::string("Tortuga")));
+        cap.printLoc();
+        cap.enterOrExitPort();
+        cap.printLoc();
+        cap.enterOrExitPort();
+        cap.printLoc();
+        cap.move(eminem::board::Direction::S);
+        cap.move(eminem::board::Direction::SE);
+        cap.move(eminem::board::Direction::SE);
+        cap.printLoc();
+        cap.move(board.getTile(std::string("Trinidad")));
+    }
+    catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 // Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"

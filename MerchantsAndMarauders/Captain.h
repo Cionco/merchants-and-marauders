@@ -4,7 +4,6 @@
 #include <string>
 #include <memory>
 #include "Seazone.h"
-#include "Location.h"
 #include <iostream>
 
 namespace eminem {
@@ -18,6 +17,7 @@ namespace eminem {
 
 			//bool move(std::shared_ptr<board::Location> target);
 			bool move(std::shared_ptr<board::Seazone> target);
+			bool move(board::Direction dir);
 			bool enterOrExitPort();
 
 			void printLoc() { 

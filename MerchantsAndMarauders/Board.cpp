@@ -17,6 +17,10 @@ namespace eminem {
 			tiles.emplace(SAN_JUAN, std::make_shared<Seazone>(SAN_JUAN, Nationality::SPANISH));
 			tiles.emplace(CARACAS, std::make_shared<Seazone>(CARACAS, Nationality::SPANISH));
 			tiles.emplace(ST_MAARTEN, std::make_shared<Seazone>(ST_MAARTEN, Nationality::DUTCH));
+			tiles.emplace(BASSE_TERRE, std::make_shared<Seazone>(BASSE_TERRE, Nationality::FRENCH));
+			tiles.emplace(ST_JOHN, std::make_shared<Seazone>(ST_JOHN, Nationality::ENGLISH));
+			tiles.emplace(BRIDGETOWN, std::make_shared<Seazone>(BRIDGETOWN, Nationality::ENGLISH));
+			tiles.emplace(TRINIDAD, std::make_shared<Seazone>(TRINIDAD, Nationality::SPANISH));
 
 			link_tiles(NASSAU, HAVANA, Direction::SW);
 			link_tiles(NASSAU, TORTUGA, Direction::SE);

@@ -14,7 +14,7 @@ namespace eminem {
 		class Port : public Location
 		{
 		public:
-			Port(Nationality n, std::string& zone_name) : Location("Port - " + zone_name), nationality(n) {}//, seazone(s) {}
+			Port(Nationality n, const std::string& zone_name) : Location("Port - " + zone_name), nationality(n) {}//, seazone(s) {}
 
 			~Port() override;
 
